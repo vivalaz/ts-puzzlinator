@@ -16,7 +16,6 @@ describe('Puzzle Item Instance', () => {
         puzzle = new PuzzleItem(defaultPuzzleSetting);
 
         expect(puzzle).toBeInstanceOf(PuzzleItem);
-        expect(puzzle.get().id).toEqual(1);
         expect(puzzle.get().edges).toMatchObject({
             top: null,
             right: { edgeTypeId: 7, type: "outside" },
@@ -26,13 +25,54 @@ describe('Puzzle Item Instance', () => {
     });
 
     it('correctly rotated to 90 deg', () => {
-        puzzle.rotate(PuzzleItem.ROTATE_90_DEG);
+        puzzle.rotate();
 
         expect(puzzle.get().edges).toMatchObject({
             top: null,
             right: null,
             bottom: { edgeTypeId: 7, type: "outside" },
             left: { edgeTypeId: 5, type: "inside" },
+        });
+    });
+
+    it('correctly rotated to 180 deg', () => {
+        puzzle.rotate();
+
+        expect(puzzle.get().edges).toMatchObject({
+            top: { edgeTypeId: 5, type: "inside" },
+            right: null,
+            bottom: null,
+            left: { edgeTypeId: 7, type: "outside" },
+        });
+    });
+
+    it('correctly rotated to 270 deg', () => {
+        puzzle.rotate();
+
+        expect(puzzle.get().edges).toMatchObject({
+            top: { edgeTypeId: 7, type: "outside" },
+            right: { edgeTypeId: 5, type: "inside" },
+            bottom: null,
+            left: null,
+        });
+    });
+
+    it('correctly rotated to 360 deg', () => {
+        puzzle.rotate();
+
+        expect(puzzle.get().edges).toMatchObject(defaultPuzzleSetting.edges);
+    });
+
+    it('correctly rotated at once to 270 deg', () => {
+        puzzle.rotate();
+        puzzle.rotate();
+        puzzle.rotate();
+
+        expect(puzzle.get().edges).toMatchObject({
+            top: { edgeTypeId: 7, type: "outside" },
+            right: { edgeTypeId: 5, type: "inside" },
+            bottom: null,
+            left: null,
         });
     });
 });

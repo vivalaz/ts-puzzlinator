@@ -11,7 +11,7 @@ class Puzzle {
         }, [])
     }
 
-    getPuzzle() {
+    getPuzzle(): Array<PuzzleItem> {
         return this.puzzle;
     }
 }
