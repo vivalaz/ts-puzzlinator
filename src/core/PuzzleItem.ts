@@ -27,7 +27,7 @@ class PuzzleItem {
         return this.puzzle.id;
     }
 
-    getEdges() {
+    getEdges(): PuzzleEdges {
         return this.puzzle.edges;
     }
 }

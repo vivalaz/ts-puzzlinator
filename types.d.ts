@@ -1,21 +1,16 @@
 type PuzzleItemType = {
     id: number,
-    edges: {
-        top?: {
-            edgeTypeId: number,
-            type: string
-        },
-        right?: {
-            edgeTypeId: number,
-            type: string
-        },
-        bottom?: {
-            edgeTypeId: number,
-            type: string
-        },
-        left?: {
-            edgeTypeId: number,
-            type: string
-        }
-    }
+    edges: PuzzleEdges
+}
+
+type PuzzleEdges = {
+    top?: PuzzleEdge,
+    right?: PuzzleEdge,
+    bottom?: PuzzleEdge,
+    left?: PuzzleEdge
+}
+
+type PuzzleEdge = {
+    edgeTypeId: number,
+    type: string
 }
