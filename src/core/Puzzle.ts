@@ -17,7 +17,7 @@ class Puzzle {
         return this.puzzle;
     }
 
-    solve(): Array<number> {
+    solveItemByItem(): Array<number> {
         const result: Array<PuzzleItem> = [];
         const tags = new Map();
 
@@ -45,10 +45,7 @@ class Puzzle {
             let edgePattern: string = getEdgeSlug(edge.edgeTypeId, getInvertedType(edge.type));
             const foundPuzzle: PuzzleItem = this.puzzle[tags.get(edgePattern)];
 
-            while (
-                !(foundPuzzle.getEdges()[edgeKey] &&
-                    foundPuzzle.getEdges()[edgeKey].edgeTypeId === edge.edgeTypeId)
-                ) {
+            while (!(foundPuzzle.getEdges()[edgeKey] && foundPuzzle.getEdges()[edgeKey].edgeTypeId === edge.edgeTypeId)) {
                 foundPuzzle.rotate();
             }
 

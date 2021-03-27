@@ -22,10 +22,10 @@ describe('Puzzle Instance', () => {
         expect(puzzles.getPuzzle().length).toBe(0);
     });
 
-    it('correctly solves 3x3', () => {
+    it('correctly solves 3x3 using item by item algorithm', () => {
         let puzzles = new Puzzle(mocked3x3Puzzle);
         const result = [1, 4, 2, 9, 6, 7, 8, 3, 5];
 
-        expect(puzzles.solve()).toEqual(result);
+        expect(puzzles.solveItemByItem()).toEqual(result);
     });
 });
