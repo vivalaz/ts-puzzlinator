@@ -14,6 +14,10 @@ class Puzzle {
     getPuzzle(): Array<PuzzleItem> {
         return this.puzzle;
     }
+
+    solve(): Array<number> {
+        return [];
+    }
 }
 
 export default Puzzle;
