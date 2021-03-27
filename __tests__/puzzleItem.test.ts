@@ -24,6 +24,19 @@ describe('Puzzle Item Instance', () => {
         });
     });
 
+    it('get correct id', () => {
+       expect(puzzle.getId()).toEqual(1);
+    });
+
+    it('get correct edges', () => {
+        expect(puzzle.getEdges()).toMatchObject({
+            top: null,
+            right: { edgeTypeId: 7, type: "outside" },
+            bottom: { edgeTypeId: 5, type: "inside" },
+            left: null,
+        });
+    });
+
     it('correctly rotated to 90 deg', () => {
         puzzle.rotate();
 

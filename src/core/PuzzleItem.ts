@@ -22,6 +22,14 @@ class PuzzleItem {
     get(): PuzzleItemType {
         return this.puzzle;
     }
+
+    getId(): number {
+        return this.puzzle.id;
+    }
+
+    getEdges() {
+        return this.puzzle.edges;
+    }
 }
 
 export default PuzzleItem;
